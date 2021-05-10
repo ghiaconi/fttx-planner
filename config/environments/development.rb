@@ -1,5 +1,19 @@
-Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+ Rails.application.configure do
+
+   config.action_mailer.perform_deliveries = true
+
+   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+   config.action_mailer.delivery_method = :smtp
+
+   config.action_mailer.smtp_settings = {
+     port:          587,
+     address:       ENV['GADDRESS'],
+     user_name:      ENV['GNAME'],
+     password:       ENV['GKEY'],
+     authentication: 'plain',
+     enable_starttls_auto: true
+   }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
