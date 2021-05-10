@@ -13,13 +13,12 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "how you're being called" } %>
-      <%= f.phone_field :phone_number,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "your mobile number to be found on whatsapp" } %>
-      <%= f.file_field :avatar,
-                       required: true,
-                       autofocus: true %>
+      <%= f.input :phone_number, as: :tel,
+                  required: true %>
+      <%= f.input :avatar, as: :file,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "your mobile number to be found on whatsapp" } %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
