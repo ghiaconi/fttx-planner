@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://res.cloudinary.com/giaconi/image/upload/v1620900189/360_F_310980526_Jdz2MuHJ70KmyFLQYON8a5r0iW1K8RUH_xojdra.jpg", class: "rounded-circle" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,20 +11,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <% if current_user.admin? %>
-          <li class="nav-item">
-            <%= link_to "Admin Dashboard", "/admin", class: "nav-link" %>
-          </li>
-        <% end %>
+        <li class="nav-item">
+          <%= link_to "Projects", projects_path, class: "nav-link" %>
+        </li>
         <li class="nav-item dropdown">
-          <%= image_tag current_user.avatar.attached? ? current_user.avatar : "https://res.cloudinary.com/giaconi/image/upload/v1615630648/2si8yvy4ggeojxealzqtur8whh71.jpg",
+          <%= image_tag (current_user.avatar.attached?) ? (cl_image_path current_user.avatar.key) : "https://res.cloudinary.com/giaconi/image/upload/v1615630648/2si8yvy4ggeojxealzqtur8whh71.jpg",
                         class: "avatar dropdown-toggle",
                         id: "navbarDropdown",
                         data: { toggle: "dropdown" },
                         'aria-haspopup': true,
                         'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Go to Dashboard", app_path, class: "dropdown-item" %>
+            <% if current_user.admin? %>
+              <%= link_to "Admin Dashboard", "#", class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "action", "#", class: "dropdown-item" %>
             <%= link_to "Acount Details", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

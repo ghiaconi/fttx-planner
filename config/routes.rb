@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'projects/index'
-  get 'projects/show'
-  get 'tasks/index'
-  get 'teams/index'
+  resources :projects
+  resources :tasks
+
   devise_for :users
 
-  root to: 'pages#landing'
+  authenticated do
+    root to: 'tasks#index', as: :authenticated_root
+  end
 
-  get 'app', to: 'pages#app'
+  root to: 'pages#landing'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
