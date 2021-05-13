@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_175537) do
+ActiveRecord::Schema.define(version: 2021_05_10_183522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_175537) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "street_name"
@@ -50,8 +43,10 @@ ActiveRecord::Schema.define(version: 2021_05_10_175537) do
     t.integer "project_number"
     t.string "responsible_phone"
     t.text "remarks"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -60,20 +55,10 @@ ActiveRecord::Schema.define(version: 2021_05_10_175537) do
     t.date "scheduled_at"
     t.date "completed_on"
     t.string "status", default: "open"
-    t.bigint "team_id"
-    t.bigint "project_id"
+    t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
-    t.index ["team_id"], name: "index_tasks_on_team_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.string "van_model"
-    t.string "van_registration_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,11 +77,12 @@ ActiveRecord::Schema.define(version: 2021_05_10_175537) do
     t.boolean "admin", default: false
     t.string "full_name"
     t.string "nickname"
-    t.integer "position"
     t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "projects", "users"
+  add_foreign_key "tasks", "projects"
 end

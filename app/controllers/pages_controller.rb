@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def app
-    render :app, layout: false
+    # render :app, layout: false
   end
 end
