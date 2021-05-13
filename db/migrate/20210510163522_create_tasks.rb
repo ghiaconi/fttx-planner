@@ -6,8 +6,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.date :scheduled_at
       t.date :completed_on
       t.string :status, default: 'open'
-      t.belongs_to :team
-      t.belongs_to :project
+      t.references :project, null: false, foreign_key: true
 
       t.timestamps
     end
