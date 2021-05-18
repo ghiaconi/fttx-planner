@@ -14,6 +14,9 @@
         <li class="nav-item">
           <%= link_to "Projects", projects_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Tasks", tasks_path, class: "nav-link" %>
+        </li>
         <li class="nav-item dropdown">
           <%= image_tag (current_user.avatar.attached?) ? (cl_image_path current_user.avatar.key) : "https://res.cloudinary.com/giaconi/image/upload/v1615630648/2si8yvy4ggeojxealzqtur8whh71.jpg",
                         class: "avatar dropdown-toggle",

@@ -43,10 +43,8 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
     t.integer "project_number"
     t.string "responsible_phone"
     t.text "remarks"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -56,9 +54,11 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
     t.date "completed_on"
     t.string "status", default: "open"
     t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +83,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
 end

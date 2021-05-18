@@ -1,9 +1,10 @@
 class Task < ApplicationRecord
-  validates :status, inclusion: { in: ["open", "ongoing", "closed", "blocked"] }
+  STATUS = ["open", "ongoing", "closed", "blocked"]
 
+  validates :status, inclusion: { in: STATUS }
+
+  belongs_to :user
   belongs_to :project
-
-  has_many :users
 
   has_many_attached :files
 end

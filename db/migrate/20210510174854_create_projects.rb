@@ -7,7 +7,6 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.integer :project_number
       t.string :responsible_phone
       t.text :remarks
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,22 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Total Projects: <%= @projects.count %></h1>
 
-<table>
+<table class="table table-bordered table-hover table-dark">
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Address</th>
+    <th scope="col">Tasks</th>
+    <th scope="col">Files</th>
+    <th scope="col">Action</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @projects.each do |project| %>
+    <tr>
+      <th scope="row"><%= project.id %></th>
+      <td><%= project.title %></td>
+      <td><%= "#{project.street_name} #{project.house_number}" %></td>
+      <td><%= project.tasks.count %></td>
+      <td><%= project.files.count %></td>
+      <td>
+        <%= link_to project do %>
+          <i class="fas fa-external-link-alt"></i>
+        <% end %>
+        <%= link_to edit_project_path(project) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </td>
+  <% end %>
   </tbody>
 </table>
 
