@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_183522) do
+ActiveRecord::Schema.define(version: 2021_05_19_071054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,15 +50,18 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.date "scheduled_at"
-    t.date "completed_on"
+    t.datetime "scheduled_at"
+    t.datetime "completed_on"
     t.string "status", default: "open"
-    t.bigint "project_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "tasks_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +75,10 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
@@ -83,6 +90,4 @@ ActiveRecord::Schema.define(version: 2021_05_10_183522) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "tasks", "projects"
-  add_foreign_key "tasks", "users"
 end

@@ -3,11 +3,11 @@ class CreateTasks < ActiveRecord::Migration[6.0]
     create_table :tasks do |t|
       t.string :title
       t.text :description
-      t.date :scheduled_at
-      t.date :completed_on
+      t.datetime :scheduled_at
+      t.datetime :completed_on
       t.string :status, default: 'open'
-      t.references :project, null: false, foreign_key: true
-      t.references :user, null: false, foreign_key: true
+      t.references :project, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

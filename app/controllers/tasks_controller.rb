@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.all
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -64,6 +64,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:title, :description, :scheduled_at, :completed_on, :project_id, :status, user: [], files: [])
+    params.require(:task).permit(:title, :description, :scheduled_at, :completed_on, :project_id, :status, user_id, files: [])
   end
 end

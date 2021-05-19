@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
+<%= link_to 'New Task', new_task_path %>
+<div class="card-deck">
 <% @tasks.each do |task| %>
   <div class="card border-dark mb-3" style="max-width: 18rem;">
     <div class="card-body text-dark">
       <h5 class="card-title"><%= task.title %></h5>
-      <h5 class="card-title"><%= task.status %></h5>
-      <h5 class="card-title text-info"><%= task %></h5>
+      <span><%= task.status %></span>
+      <h5 class="card-title text-info"><%= task.project.title %></h5>
       <p class="card-text"><%= task.description %></p>
       <div class="card-footer">
         <%= link_to 'Show', task %>
@@ -16,7 +18,4 @@
     </div>
   </div>
 <% end %>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+</div>

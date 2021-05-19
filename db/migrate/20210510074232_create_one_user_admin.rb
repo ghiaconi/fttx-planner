@@ -4,6 +4,7 @@ class CreateOneUserAdmin < ActiveRecord::Migration[6.0]
       u.email     = 'admin@fttx-planner.net'
       u.password  = 'password'
       u.admin = true
+      u.confirm
     end
   end
 end

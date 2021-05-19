@@ -10,16 +10,13 @@
                 required: true %>
     <%= f.input :scheduled_at,
                 required: true %>
-    <%= f.input :status, collection: Task::STATUS %>
-    <%= f.association :project,
-                      required: true %>
-    <%= f.input :user, as: :check_boxes,
-                collection: User.all.map { |user|
-                  [user.nickname, user.id] }
-    %>
+    <%= f.input :status, collection: Task::STATUS, include_blank: false %>
+    <%= f.association :project, include_blank: false %>
+    <%= f.input :user_ids, as: :select, collection: User.all.map { |field| [field.id, field.email] } %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
