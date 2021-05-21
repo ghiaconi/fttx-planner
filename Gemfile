@@ -35,6 +35,7 @@ gem 'cloudinary'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -54,7 +55,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
-  gem 'faker'
 end
 
 group :test do

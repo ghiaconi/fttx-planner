@@ -68,7 +68,6 @@
     <orderEntry type="library" scope="PROVIDED" name="font-awesome-sass (v5.15.1, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formatador (v0.2.5, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, rbenv: 2.6.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="groupify (v0.9.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard (v2.17.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-livereload (v2.5.2, rbenv: 2.6.6) [gem]" level="application" />
