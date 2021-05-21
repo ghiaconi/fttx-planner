@@ -3,8 +3,9 @@ class Task < ApplicationRecord
 
   validates :status, inclusion: { in: STATUS }
 
-  belongs_to :project
-  has_and_belongs_to_many :users
-
   has_many_attached :files
+
+  belongs_to :project
+  belongs_to :team
+
 end

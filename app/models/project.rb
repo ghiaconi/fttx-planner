@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
+  has_many_attached :files
 
   has_many :tasks
-  has_many :users, through: :tasks, as: tasks_users
+  has_many :teams, through: :tasks
 
-  has_many_attached :files
 end
