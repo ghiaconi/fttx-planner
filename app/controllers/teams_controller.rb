@@ -22,7 +22,6 @@ class TeamsController < ApplicationController
   # POST /teams or /teams.json
   def create
     @team = Team.new(team_params)
-    @team.users << team_params[:user_ids]
 
     respond_to do |format|
       if @team.save

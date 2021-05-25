@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
 
   has_one_attached :avatar
-
-  belongs_to :team, class_name: 'Team'
+  belongs_to :team
 
 end
