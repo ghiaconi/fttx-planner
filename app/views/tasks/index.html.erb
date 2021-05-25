@@ -10,6 +10,7 @@
       <span><%= task.status %></span>
       <h5 class="card-title text-info"><%= task.project.title %></h5>
       <p class="card-text"><%= task.description %></p>
+      <p class="card-text"><%= task.team.name %></p>
       <div class="card-footer">
         <%= link_to 'Show', task %>
         <%= link_to 'Edit', edit_task_path(task) %>

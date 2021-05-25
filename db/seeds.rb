@@ -48,8 +48,8 @@ end
 # Creating one admin
 User.create(email: "admin@fttx-planner.net", password: "123456", password_confirmation: "123456", admin: true, confirmed_at: Time.now, team_id: Team.last.id)
 puts 'Admin user created'
-puts "login: #{User.where("admin = true")} and password: 123456"
+puts "login: #{User.last.email} and password: 123456"
 
-puts "done. #{Project.all.count} projects, #{Team.all.count} teams and #{User.all.count} users created"
+puts "#{Project.all.count} projects, #{Team.all.count} teams and #{User.all.count} users created"
 
 puts 'Seed complete!'
