@@ -2,9 +2,15 @@
 <%= simple_form_for(@team) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <ul>
+    <% @team.errors.full_messages.each do |message| %>
+      <li class="text-info"><%= message %></li>
+    <% end %>
+  </ul>
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.association :users %>
   </div>
 
   <div class="form-actions">

@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  # test associations
+  belongs_to :team, class_name: 'Team'
 
 end

@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
 
+<strong>Name:</strong>
+<%= @team.name %>
+<%= @team.users.count%>
+  <p>it should be some users here</p>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

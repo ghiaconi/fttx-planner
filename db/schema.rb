@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_183522) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_183522) do
     t.string "full_name"
     t.string "nickname"
     t.string "phone_number"
+    t.integer "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
