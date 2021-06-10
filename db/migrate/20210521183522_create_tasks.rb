@@ -8,6 +8,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.string :status, default: 'open'
       t.integer :project_id
       t.integer :team_id
+      t.integer :material_id
 
       t.timestamps
     end

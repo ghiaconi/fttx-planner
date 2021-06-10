@@ -3,20 +3,27 @@
 <h1>Tasks</h1>
 <%= link_to 'New Task', new_task_path %>
 <div class="card-deck">
-<% @tasks.each do |task| %>
-  <div class="card border-dark mb-3" style="max-width: 18rem;">
-    <div class="card-body text-dark">
-      <h5 class="card-title"><%= task.title %></h5>
-      <span><%= task.status %></span>
-      <h5 class="card-title text-info"><%= task.project.title %></h5>
-      <p class="card-text"><%= task.description %></p>
-      <p class="card-text"><%= task.team.name %></p>
-      <div class="card-footer">
-        <%= link_to 'Show', task %>
-        <%= link_to 'Edit', edit_task_path(task) %>
-        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% @tasks.each do |task| %>
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-body text-dark">
+        <h5 class="card-title text-info"><%= "#{task.project.street_name} #{task.project.house_number}" %></h5>
+        <p class="card-title"><%= task.title %></p>
+        <span><%= task.status %></span>
+        <p class="card-text"><%= task.description %></p>
+        <div class="card-footer">
+          <p>Materials:</p>
+          <ol>
+            <% task.materials.all.each do |material| %>
+              <li>
+                <%= material.title %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+          <%= link_to 'Show', task %>
+          <%= link_to 'Edit', edit_task_path(task) %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>

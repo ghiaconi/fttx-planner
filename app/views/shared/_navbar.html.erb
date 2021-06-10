@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://res.cloudinary.com/giaconi/image/upload/v1620900189/360_F_310980526_Jdz2MuHJ70KmyFLQYON8a5r0iW1K8RUH_xojdra.jpg", class: "rounded-circle" %>
+    <%= image_pack_tag 'logo.png' %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,8 +9,11 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Materials", materials_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "Teams", teams_path, class: "nav-link" %>
         </li>
@@ -22,7 +25,7 @@
         </li>
         <li class="nav-item dropdown">
           <%= image_tag (current_user.avatar.attached?) ? (cl_image_path current_user.avatar.key) : "https://res.cloudinary.com/giaconi/image/upload/v1615630648/2si8yvy4ggeojxealzqtur8whh71.jpg",
-                        class: "avatar dropdown-toggle",
+                        class: "avatarImage dropdown-toggle",
                         id: "navbarDropdown",
                         data: { toggle: "dropdown" },
                         'aria-haspopup': true,
