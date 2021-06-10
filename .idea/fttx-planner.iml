@@ -80,6 +80,7 @@
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.9.1, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.2.8, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, rbenv: 2.6.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mail_form (v1.9.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.1, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.3.1, rbenv: 2.6.6) [gem]" level="application" />
@@ -169,6 +170,7 @@
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="mail_form" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
@@ -206,6 +208,7 @@
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="mail_form" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />

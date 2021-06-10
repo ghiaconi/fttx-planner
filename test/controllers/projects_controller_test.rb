@@ -5,7 +5,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     @project = projects(:one)
   end
 
-  test "should get index" do
+  test "should get create" do
     get projects_url
     assert_response :success
   end
@@ -15,7 +15,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create project" do
+  test "should index project" do
     assert_difference('Project.count') do
       post projects_url, params: { project: {  } }
     end

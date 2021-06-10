@@ -5,7 +5,7 @@ class TasksTest < ApplicationSystemTestCase
     @task = tasks(:one)
   end
 
-  test "visiting the index" do
+  test "visiting the create" do
     visit tasks_url
     assert_selector "h1", text: "Tasks"
   end

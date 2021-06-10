@@ -141,6 +141,9 @@ GEM
     lumberjack (1.2.8)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.9.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (1.0.1)
     method_source (1.0.0)
     mime-types (3.3.1)
@@ -303,6 +306,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mail_form
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails

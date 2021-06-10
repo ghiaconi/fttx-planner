@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.index([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.index(name: 'Luke', movie: movies.first)
 #
 # Seed the db with some records
 #

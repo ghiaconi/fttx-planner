@@ -5,7 +5,7 @@ class TeamsTest < ApplicationSystemTestCase
     @team = teams(:one)
   end
 
-  test "visiting the index" do
+  test "visiting the create" do
     visit teams_url
     assert_selector "h1", text: "Teams"
   end

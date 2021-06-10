@@ -5,7 +5,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
     @material = materials(:one)
   end
 
-  test "should get index" do
+  test "should get create" do
     get materials_url
     assert_response :success
   end
@@ -15,7 +15,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create material" do
+  test "should index material" do
     assert_difference('Material.count') do
       post materials_url, params: { material: { description: @material.description, task_id: @material.task_id, title: @material.title } }
     end

@@ -5,7 +5,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     @team = teams(:one)
   end
 
-  test "should get index" do
+  test "should get create" do
     get teams_url
     assert_response :success
   end
@@ -15,7 +15,7 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create team" do
+  test "should index team" do
     assert_difference('Team.count') do
       post teams_url, params: { team: { name: @team.name, user: @team.user } }
     end

@@ -5,7 +5,7 @@ class MaterialsTest < ApplicationSystemTestCase
     @material = materials(:one)
   end
 
-  test "visiting the index" do
+  test "visiting the create" do
     visit materials_url
     assert_selector "h1", text: "Materials"
   end

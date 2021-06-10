@@ -5,7 +5,7 @@ class ProjectsTest < ApplicationSystemTestCase
     @project = projects(:one)
   end
 
-  test "visiting the index" do
+  test "visiting the create" do
     visit projects_url
     assert_selector "h1", text: "Projects"
   end

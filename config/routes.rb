@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :projects
   resources :tasks
 
+  get '/contact', to: 'contacts#new'
+  resources "contacts", only: [:new, :create]
+
   devise_for :users
 
   authenticated do
@@ -11,8 +14,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#landing'
-
-  get '/contact', to: 'pages#contact'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

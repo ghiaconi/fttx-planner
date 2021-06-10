@@ -1,0 +1,35 @@
+<% content_for :title do %>
+  Contact us
+<% end %>
+
+<section class="py-10">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mb-3">
+        <h2>Formular de contact</h2>
+      </div>
+    </div>
+    <%= simple_form_for @contact, method: :post, class: 'form-row' do |f| %>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <%= f.input :subject, collection: Contact::STATUS, include_blank: true %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :name, required: true, placeholder: "Full name", class: "form-control py-4" %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :email, required: true, placeholder: "Your email", class: "form-control py-4" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.input :message, as: :text, input_html: { 'rows' => 8, 'cols' => 40 }, required: true, placeholder: "Leave your thoughts....", class: "form-control py-3" %>
+      </div>
+      <div class="text-center">
+        <%= f.button :submit, 'Send message', class: "btn btn-grad mt-4" %>
+      </div>
+      <div class="d-none">
+        <%= f.input :nickname, hint: "leave it blank you bot" %>
+      </div>
+    <% end %>
+  </div>
+</section>

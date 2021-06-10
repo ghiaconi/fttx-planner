@@ -5,7 +5,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     @task = tasks(:one)
   end
 
-  test "should get index" do
+  test "should get create" do
     get tasks_url
     assert_response :success
   end
@@ -15,7 +15,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create task" do
+  test "should index task" do
     assert_difference('Task.count') do
       post tasks_url, params: { task: {  } }
     end
